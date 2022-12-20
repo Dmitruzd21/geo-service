@@ -2,6 +2,7 @@ package ru.netology.sender;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mockito;
@@ -52,7 +53,7 @@ public class MessageSenderTest {
     // если ip относится к американскому сегменту адресов.
     @ParameterizedTest
     @ValueSource(strings = {NEW_YORK_IP, USA_IP})
-    public void shouldEnglishTextWhenUSAIp(String ip) {
+    public void shouldReturnEnglishTextWhenUSAIp(String ip) {
         headers.put(MessageSenderImpl.IP_ADDRESS_HEADER, ip);
         Mockito.when(geoService.byIp(ip)).thenReturn(new Location("New York", Country.USA, null, 0));
         Mockito.when(localizationService.locale(Country.USA)).thenReturn("Welcome");
