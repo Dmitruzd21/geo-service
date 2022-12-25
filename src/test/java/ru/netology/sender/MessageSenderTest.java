@@ -30,8 +30,8 @@ public class MessageSenderTest {
 
     @BeforeEach
     public void createServicesAndMessageSenderAndHeaders() {
-        geoService = Mockito.mock(GeoServiceImpl.class);
-        localizationService = Mockito.mock(LocalizationServiceImpl.class);
+        geoService = Mockito.mock(GeoService.class);
+        localizationService = Mockito.mock(LocalizationService.class);
         messageSender = new MessageSenderImpl(geoService, localizationService);
         headers = new HashMap<String, String>();
     }
